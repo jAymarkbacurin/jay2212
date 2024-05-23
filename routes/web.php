@@ -18,6 +18,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/deleteuser', [ProfileController::class, 'delete'])->name('deleteuser');
     Route::get('/Edituser', [ProfileController::class, 'edituser'])->name('Edituser');
     Route::post('/Editpost', [ProfileController::class, 'editpost'])->name('Editpost');
+    Route::get('/Showuserdetail', [ProfileController::class, 'showuserdetail'])->name('Showuserdetail');
+    
 
 });
 

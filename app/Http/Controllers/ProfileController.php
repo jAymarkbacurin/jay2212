@@ -82,4 +82,11 @@ class ProfileController extends Controller
       return redirect()->route('dashboard')->with(['status'=>'successfully edited post']);
        
     }
+    public function showuserdetail(Request $request): ?View
+    {
+        $user = User::find($request->id);
+         return view('showuserdetail', [
+            'user' => $user,
+        ]);
+    }
 }

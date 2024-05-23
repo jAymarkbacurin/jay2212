@@ -172,7 +172,7 @@
                                                     <td class="px-4 py-3 flex items-center justify-end">
 
 
-                                                        <a href="#"
+                                                        <a href="{{ route('Showuserdetail', 'id=' . $user->id) }}"
                                                             class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
 
                                                         <a href="{{ route('Edituser', 'id=' . $user->id) }}"
