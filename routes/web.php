@@ -19,7 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/Edituser', [ProfileController::class, 'edituser'])->name('Edituser');
     Route::post('/Editpost', [ProfileController::class, 'editpost'])->name('Editpost');
     Route::get('/Showuserdetail', [ProfileController::class, 'showuserdetail'])->name('Showuserdetail');
-    
+    Route::get('/Runbackup', [ProfileController::class, 'runBackup'])->name('Runbackup');
+
 
 });
 

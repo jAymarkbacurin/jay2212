@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
 
@@ -88,5 +90,11 @@ class ProfileController extends Controller
          return view('showuserdetail', [
             'user' => $user,
         ]);
+    }
+    public function runBackup()
+    {
+        Artisan::call('backup:run', ['--no-interaction' => true]);
+        Log::info('backup has runed');
+        return redirect()->back()->with('success', 'Backup executed successfully!');
     }
 }
