@@ -17,14 +17,15 @@
     @php
         $users = \App\Models\User::all();
     @endphp
-    <div class="py-12">
+    <div class="py-12 bg-black">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-black overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5">
+                    <section class="bg-black  p-3 sm:p-5">
                         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
                             <!-- Start coding here -->
-                            <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
+                            <div
+                                class="bg-black border-yellow-500 border-[2px] relative shadow-md sm:rounded-lg overflow-hidden p-[2rem]">
                                 <div
                                     class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                                     <div class="w-full md:w-1/2">
@@ -43,7 +44,7 @@
                                                     </svg>
                                                 </div>
                                                 <input type="text" id="simple-search"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    class="bg-white border border-yellow-500 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-black dark:border-yellow-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                                     placeholder="Search" required="">
                                             </div>
                                         </form>
@@ -51,7 +52,7 @@
                                     <div
                                         class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                                         <button type="button"
-                                            class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+                                            class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-black dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                                             <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
                                                 xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                 <path clip-rule="evenodd" fill-rule="evenodd"
@@ -61,7 +62,7 @@
                                         </button>
                                         <div class="flex items-center space-x-3 w-full md:w-auto">
                                             <button id="actionsDropdownButton" data-dropdown-toggle="actionsDropdown"
-                                                class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                                class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-black dark:text-gray-400 dark:border-yellow-600 dark:hover:text-white dark:hover:bg-gray-700"
                                                 type="button">
                                                 <svg class="-ml-1 mr-1.5 w-5 h-5" fill="currentColor"
                                                     viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +89,7 @@
                                                 </div>
                                             </div>
                                             <button id="filterDropdownButton" data-dropdown-toggle="filterDropdown"
-                                                class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                                class="w-full md:w-auto flex items-center justify-center py-2 px-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-black dark:text-gray-400 dark:border-yellow-600 dark:hover:text-white dark:hover:bg-gray-700"
                                                 type="button">
                                                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                                     class="h-4 w-4 mr-2 text-gray-400" viewbox="0 0 20 20"
@@ -153,7 +154,7 @@
                                 <div class="overflow-x-auto">
                                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                         <thead
-                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-black dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">
                                             <tr>
                                                 <th scope="col" class="px-4 py-3">id</th>
                                                 <th scope="col" class="px-4 py-3">Name</th>
@@ -176,13 +177,16 @@
 
 
                                                         <a href="{{ route('Showuserdetail', 'id=' . $user->id) }}"
-                                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show</a>
+                                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-black hover:border-yellow-600 border-black border-[1px] rounded-lg dark:hover:text-white
+                                                            transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">Show</a>
 
                                                         <a href="{{ route('Edituser', 'id=' . $user->id) }}"
-                                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Edit</a>
+                                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-black hover:border-yellow-600 border-black border-[1px] rounded-lg dark:hover:text-white
+                                                            transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">Edit</a>
 
                                                         <a href="{{ route('deleteuser', 'id=' . $user->id) }}"
-                                                            class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete</a>
+                                                            class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-black hover:border-yellow-600 border-black border-[1px] rounded-lg dark:hover:text-white
+                                                            transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">Delete</a>
 
                                 </div>
                                 </td>
