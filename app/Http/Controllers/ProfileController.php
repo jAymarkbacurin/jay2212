@@ -82,7 +82,7 @@ class ProfileController extends Controller
       $user->email = $request->email;
       $user->save();
       return redirect()->route('dashboard')->with(['status'=>'successfully edited post']);
-       
+
     }
     public function showuserdetail(Request $request): ?View
     {
@@ -96,5 +96,9 @@ class ProfileController extends Controller
         Artisan::call('backup:run', ['--no-interaction' => true]);
         Log::info('backup has runed');
         return redirect()->back()->with('success', 'Backup executed successfully!');
+    }
+    public function Backupdetail()
+    {
+        return view('backupdetail');
     }
 }
