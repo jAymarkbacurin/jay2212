@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Spatie\Backup\Helpers\Format;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
 
@@ -99,8 +102,25 @@ class ProfileController extends Controller
     }
     public function Backupdetail()
     {
-        return view('backupdetail');
-    }
+        $disk = Storage::disk(config('backup.backup.destination.disks')[0]);
+        $files = $disk->files(config('backup.backup.name'));
+        $backups = [];
+        // make an array of backup files, with their filesize and creation date
+        foreach ($files as $k => $f) {
+            // only take the zip files into account
+            if (substr($f, -4) == '.zip' && $disk->exists($f)) {
+                $backups[] = [
+                    'file_path' => $f,
+                    'file_name' => str_replace(config('backup.backup.name') . '/', '', $f),
+                    'file_size' => Format::humanReadableSize($disk->size($f)),
+                    'last_modified' => Carbon::createFromTimestamp($disk->lastModified($f)),
+                ];
+            }
+        }
+        // reverse the backups, so the newest one would be on top
+        $backups = array_reverse($backups);
+        return view('backupdetail')->with(compact('backups'));  
+      }
     public function Activitylog()
     {
         return view('activitylog');
