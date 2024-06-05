@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Showuserdetail', [ProfileController::class, 'showuserdetail'])->name('Showuserdetail');
     Route::get('/Runbackup', [ProfileController::class, 'runBackup'])->name('Runbackup');
     Route::get('/backupdetail', [ProfileController::class, 'Backupdetail'])->name('backupdetail');
+    Route::get('/activitylog', [ProfileController::class, 'Activitylog'])->name('activitylog');
 
 
 });

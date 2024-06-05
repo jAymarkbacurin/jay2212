@@ -101,4 +101,8 @@ class ProfileController extends Controller
     {
         return view('backupdetail');
     }
+    public function Activitylog()
+    {
+        return view('activitylog');
+    }
 }
