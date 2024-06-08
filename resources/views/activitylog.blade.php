@@ -8,6 +8,9 @@
             if (session('status')) {
                 $success = session('status');
             }
+
+            $activity = \App\Models\AuditTrail::query()->where('user_id', auth()->user()->id)->get();
+
         @endphp
 
     </x-slot>
@@ -19,29 +22,30 @@
                 <div
                     class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                     <div class="w-full md:w-1/2">
-                        <a href="{{ route('Runbackup') }}">
-                            <button type="submit"
-                                class="text-yellow-500 hover:text-white mx-[2rem]   hover:border-yellow-600 border-slate-900 border-b-[1px]  text-center py-[6px] text-[13px]   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">BACKUP
-                            </button>
-                        </a>
-                        <a href="{{ route('Runbackup') }}">
-                            <button type="submit"
-                                class="text-yellow-500  hover:text-white hover:border-yellow-600 border-slate-900 border-b-[1px]  text-center py-[6px] text-[13px]   transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300">RECOVER
-                            </button>
-                        </a>
-
+                     
                     </div>
                 </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead
                             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">
-
+                            <tr>
+                                <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">Activity</th>
+                                <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">Type</th>
+                                <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">User ID</th>
+                                <th class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">Date</th>
+                            </tr>
 
                         </thead>
                         <tbody>
-
-
+                            @foreach ($activity as $item)
+                                <tr>
+                                    <td class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">{{ $item->activity }}</td>
+                                    <td class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">{{ $item->type }}</td>
+                                    <td class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">{{ $item->user_id }}</td>
+                                    <td class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-slate-900 dark:text-gray-400 border-b-[1px] border-yellow-500 rounded-lg">{{ $item->created_at->diffForHumans() }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

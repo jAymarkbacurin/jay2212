@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\View\View;
+use App\Models\AuditTrail;
 use Illuminate\Http\Request;
 use Spatie\Backup\Helpers\Format;
 use Illuminate\Support\Facades\Log;
@@ -97,7 +98,11 @@ class ProfileController extends Controller
     public function runBackup()
     {
         Artisan::call('backup:run', ['--no-interaction' => true]);
-        Log::info('backup has runed');
+        AuditTrail::create([
+            'activity' => 'Backup Was creadted by '.auth()->user()->name,
+            'type' => 'Backup created',
+            'user_id' => auth()->user()->id,
+        ]);
         return redirect()->back()->with('success', 'Backup executed successfully!');
     }
     public function Backupdetail()
