@@ -6,7 +6,7 @@
                 $success = session('status');
             }
 
-        @endphp      
+        @endphp
     </x-slot>
     <section class="p-3 sm:p-5">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
